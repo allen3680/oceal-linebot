@@ -35,7 +35,9 @@ app.post("/broadcast", (req, res) => {
 
 app.get("/hello", (req, res) => res.send("hello"));
 
-app.listen();
+app.listen(process.env.PORT || 3000, () => {
+  console.log("‘listening 3000…’");
+});
 
 // echo user message
 bot.on("message", function (event) {
