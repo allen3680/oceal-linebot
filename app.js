@@ -33,7 +33,9 @@ app.post("/broadcast", (req, res) => {
     });
 });
 
-app.listen();
+app.get("/hello", (req, res) => res.send("hello"));
+
+//app.listen();
 
 // echo user message
 bot.on("message", function (event) {
