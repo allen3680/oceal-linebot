@@ -6,12 +6,30 @@ const linebot = require("linebot");
 const Express = require("express");
 const BodyParser = require("body-parser");
 
+const line = require("@line/bot-sdk");
+
+const client = new line.Client({
+  channelAccessToken: "<channel access token>",
+});
+
+const richmenu = {
+  select: true,
+  size: {
+    width: 2500,
+    height: 1686,
+  },
+  name: "firstMenu",
+  chatBarText: "目錄",
+};
+
+client.createRichMenu(richmenu).then((richMenuId) => console.log(richMenuId));
+
 // Line Channel info
-// const bot = linebot({
-//   channelId: process.env.LINE_CHANNEL_ID,
-//   channelSecret: process.env.LIEN_CHANNEL_SECRET,
-//   channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN,
-// });
+const bot = linebot({
+  channelId: process.env.LINE_CHANNEL_ID,
+  channelSecret: process.env.LIEN_CHANNEL_SECRET,
+  channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN,
+});
 
 const linebotParser = bot.parser();
 const app = Express();
@@ -21,7 +39,7 @@ app.post("/linewebhook", linebotParser);
 app.use(BodyParser.urlencoded({ extended: true }));
 app.use(BodyParser.json());
 
-// 發送推播
+// a http endpoint for trigger broadcast
 app.post("/broadcast", (req, res) => {
   bot
     .broadcast(req.body.message)
