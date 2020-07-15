@@ -6,23 +6,23 @@ const linebot = require("linebot");
 const Express = require("express");
 const BodyParser = require("body-parser");
 
-const line = require("@line/bot-sdk");
+// const line = require("@line/bot-sdk");
 
-const client = new line.Client({
-  channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN,
-});
+// const client = new line.Client({
+//   channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN,
+// });
 
-const richmenu = {
-  select: true,
-  size: {
-    width: 2500,
-    height: 1686,
-  },
-  name: "firstMenu",
-  chatBarText: "目錄",
-};
+// const richmenu = {
+//   select: true,
+//   size: {
+//     width: 2500,
+//     height: 1686,
+//   },
+//   name: "firstMenu",
+//   chatBarText: "目錄",
+// };
 
-client.createRichMenu(richmenu).then((richMenuId) => console.log(richMenuId));
+// client.createRichMenu(richmenu).then((richMenuId) => console.log(richMenuId));
 
 // Line Channel info
 const bot = linebot({
