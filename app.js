@@ -9,7 +9,7 @@ const BodyParser = require("body-parser");
 const line = require("@line/bot-sdk");
 
 const client = new line.Client({
-  channelAccessToken: "<channel access token>",
+  channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN,
 });
 
 const richmenu = {
