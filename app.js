@@ -75,13 +75,14 @@ bot
   })
   .on('follow', function (event) {
     var userId = event.source.userId;
-    var replyMsg = `${event.message.text}`;
-    event
-      .reply(replyMsg + '\nuserId:' + userId)
-      .then(function (data) {
-        console.log('ok');
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
+    bot.getUserProfile(userId).then((x) => {
+      event
+        .reply('Hello!\nuserId:' + userId + '\nuserName:' + x.displayName)
+        .then(function (data) {
+          console.log('ok');
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    });
   });
