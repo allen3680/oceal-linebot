@@ -61,7 +61,7 @@ app.listen(process.env.PORT || 3000, () => {
 bot
   .on('message', function (event) {
     var userId = event.source.userId;
-    var userName = bot.getUserProfile(userId).then((x) => {
+    var userName = await bot.getUserProfile(userId).then((x) => {
       return JSON.stringify(x).displayName;
     });
     var replyMsg = `${event.message.text}`;
