@@ -63,8 +63,9 @@ bot
     var userId = event.source.userId;
     var userName = `${event.source.userName}`;
     var replyMsg = `${event.message.text}`;
+    var profile = bot.getUserProfile(useId);
     event
-      .reply(replyMsg + '\n userId:' + userId + ' \n userName:' + userName)
+      .reply(replyMsg + '\nuserId:' + userId + '\nuserName:' + profile)
       .then(function (data) {
         console.log('ok');
       })
@@ -77,7 +78,7 @@ bot
     var userName = `${event.source.userName}`;
     var replyMsg = `${event.message.text}`;
     event
-      .reply(replyMsg & '%0D%0AuserId:' & userId & '%0D%0AuserName:' & userName)
+      .reply(replyMsg + '\nuserId:' + userId + '\nuserName:' + userName)
       .then(function (data) {
         console.log('ok');
       })
