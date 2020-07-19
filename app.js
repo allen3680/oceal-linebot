@@ -1,7 +1,8 @@
 'use strict';
 const result = require('dotenv').config();
 if (result.error) throw result.error;
-
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 const linebot = require('linebot');
 const Express = require('express');
 const BodyParser = require('body-parser');
@@ -15,6 +16,7 @@ const bot = linebot({
 
 const linebotParser = bot.parser();
 const app = Express();
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 // for line webhook usage
 app.post('/linewebhook', linebotParser);
 
