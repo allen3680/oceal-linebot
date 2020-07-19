@@ -58,8 +58,7 @@ app.listen(process.env.PORT || 3000, () => {
   console.log('‘listening 3000…’');
 });
 
-app// echo user message
-.bot
+app.bot // echo user message
   .on('message', function (event) {
     var userId = event.source.userId;
     var userName = event.source.userName;
@@ -72,18 +71,17 @@ app// echo user message
       .catch(function (error) {
         console.error(error);
       });
+  })
+  .on('follow', function (event) {
+    var userId = event.source.userId;
+    var userName = event.source.userName;
+    var replyMsg = `${event.message.text}`;
+    event
+      .reply(replyMsg + ' userId:' + userId + 'userName:' + userName)
+      .then(function (data) {
+        console.log('ok');
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
   });
-
-bot.on('follow', function (event) {
-  var userId = event.source.userId;
-  var userName = event.source.userName;
-  var replyMsg = `${event.message.text}`;
-  event
-    .reply(replyMsg + ' userId:' + userId + 'userName:' + userName)
-    .then(function (data) {
-      console.log('ok');
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
-});
