@@ -69,7 +69,7 @@ bot
           '\nuserId:' +
           userId +
           '\nuserName:' +
-          event.source.toString()
+          JSON.stringify(event.source)
       )
       .then(function (data) {
         console.log('ok');
