@@ -65,11 +65,7 @@ bot
     var replyMsg = `${event.message.text}`;
     event
       .reply(
-        replyMsg +
-          '\nuserId:' +
-          userId +
-          '\nuserName:' +
-          JSON.stringify(event.source)
+        replyMsg + '\nuserId:' + userId + '\nuserName:' + JSON.stringify(event)
       )
       .then(function (data) {
         console.log('ok');
