@@ -60,7 +60,7 @@ app.listen(process.env.PORT || 3000, () => {
 // echo user message
 bot.on('message', function (event) {
   //var idd = event.source.userId;
-  console.log(event.source.userId);
+
   // get user message from `event.message.text`
   // reply same message
   var replyMsg = `${event.message.text}`;
