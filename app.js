@@ -65,9 +65,7 @@ bot
     var replyMsg = `${event.message.text}`;
     var profile = bot.getUserProfile(useId);
     event
-      .reply(
-        replyMsg + '\nuserId:' + userId + '\nuserName:' + profile.toString()
-      )
+      .reply(replyMsg + '\nuserId:' + userId + '\nuserName:')
       .then(function (data) {
         console.log('ok');
       })
