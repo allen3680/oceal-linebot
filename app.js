@@ -51,6 +51,17 @@ app.post('/broadcast', (req, res) => {
     });
 });
 
+app.post('/push', (req, res) => {
+  bot
+    .push(req.body.to, req.body.message)
+    .then(() => {
+      res.send('broadcast ok');
+    })
+    .catch(function (error) {
+      res.send('broadcast fail');
+    });
+});
+
 app.listen(process.env.PORT || 3000, () => {
   console.log('‘listening 3000…’');
 });
