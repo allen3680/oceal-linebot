@@ -61,10 +61,11 @@ app.listen(process.env.PORT || 3000, () => {
 bot
   .on('message', function (event) {
     var userId = event.source.userId;
-    var userName = `${event.source.userName}`;
+
+    var userName = event.userName;
     var replyMsg = `${event.message.text}`;
     event
-      .reply(replyMsg + '\nuserId:' + userId + '\nuserName:')
+      .reply(replyMsg + '\nuserId:' + userId + '\nuserName:' + userName)
       .then(function (data) {
         console.log('ok');
       })
