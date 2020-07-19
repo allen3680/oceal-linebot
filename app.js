@@ -6,24 +6,6 @@ const linebot = require('linebot');
 const Express = require('express');
 const BodyParser = require('body-parser');
 
-// const line = require("@line/bot-sdk");
-
-// const client = new line.Client({
-//   channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN,
-// });
-
-// const richmenu = {
-//   select: true,
-//   size: {
-//     width: 2500,
-//     height: 1686,
-//   },
-//   name: "firstMenu",
-//   chatBarText: "目錄",
-// };
-
-// client.createRichMenu(richmenu).then((richMenuId) => console.log(richMenuId));
-
 // Line Channel info
 const bot = linebot({
   channelId: process.env.LINE_CHANNEL_ID,
@@ -68,13 +50,10 @@ app.listen(process.env.PORT || 3000, () => {
 
 // echo user message
 bot.on('message', function (event) {
-  var idd = `${event.source.userId}`;
-
-  // get user message from `event.message.text`
-  // reply same message
+  var userId = event.source.userId;
   var replyMsg = `${event.message.text}`;
   event
-    .reply(replyMsg + idd)
+    .reply(replyMsg + ' userId:' + userId)
     .then(function (data) {
       console.log('ok');
     })
