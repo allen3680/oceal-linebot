@@ -26,21 +26,32 @@ app.post('/broadcast', (req, res) => {
   bot
     .broadcast(req.body.message)
     .then(() => {
-      res.send('broadcast ok');
+      res.send('success');
     })
     .catch(function (error) {
-      res.send('broadcast fail');
+      res.send('fail');
     });
 });
 
-app.post('/push', (req, res) => {
+app.post('/pushMessage', (req, res) => {
   bot
     .push(req.body.to, req.body.message)
     .then(() => {
-      res.send('broadcast ok');
+      res.send('success');
     })
     .catch(function (error) {
-      res.send('broadcast fail');
+      res.send('fail');
+    });
+});
+
+app.post('/pushImage', (req, res) => {
+  bot
+    .pushImage(req.body.to, req.body.image, req.body.thumbnail)
+    .then(() => {
+      res.send('success');
+    })
+    .catch(function (error) {
+      res.send('fail');
     });
 });
 
@@ -51,9 +62,10 @@ app.listen(process.env.PORT || 3000, () => {
 // echo user message
 bot.on('message', function (event) {
   var userId = event.source.userId;
+  var userName = event.source.userName;
   var replyMsg = `${event.message.text}`;
   event
-    .reply(replyMsg + ' userId:' + userId)
+    .reply(replyMsg + ' userId:' + userId + 'userName:' + userName)
     .then(function (data) {
       console.log('ok');
     })
