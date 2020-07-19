@@ -44,12 +44,14 @@ app.post('/broadcast', (req, res) => {
   bot
     .broadcast(req.body.message)
     .then(() => {
-      res.send('broadcast ok' + `使用者 ID: ${event.source.userId}`);
+      res.send('broadcast ok');
     })
     .catch(function (error) {
       res.send('broadcast fail');
     });
 });
+
+bot.getUserProfile(event);
 
 app.listen(process.env.PORT || 3000, () => {
   console.log('‘listening 3000…’');
@@ -61,7 +63,7 @@ bot.on('message', function (event) {
   // reply same message
   var replyMsg = `${event.message.text}`;
   event
-    .reply(replyMsg)
+    .reply(replyMsg + event.source.userId)
     .then(function (data) {
       console.log('ok');
     })
