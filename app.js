@@ -64,7 +64,9 @@ bot
     var userName = `${event.source.userName}`;
     var replyMsg = `${event.message.text}`;
     event
-      .reply(replyMsg + '%0D%0AuserId:' + userId + '%0D%0AuserName:' + userName)
+      .reply(
+        replyMsg + ' %0D%0A userId:' + userId + ' %0D%0A userName:' + userName
+      )
       .then(function (data) {
         console.log('ok');
       })
