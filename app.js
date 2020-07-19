@@ -3,36 +3,8 @@ const result = require('dotenv').config();
 if (result.error) throw result.error;
 const linebot = require('linebot');
 const Express = require('express');
-const swaggerJsdoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
 const BodyParser = require('body-parser');
 
-var swaggerDefinition = {
-  info: {
-    title: 'Node Swagger API',
-    version: '1.0.0',
-    description: 'Swagger 接口文档',
-  },
-  host: process.env.PORT,
-  basePath: '/',
-};
-
-// options for the swagger docs
-var options = {
-  // import swaggerDefinitions
-  swaggerDefinition: swaggerDefinition,
-  // path to the API docs
-  apis: ['./routes/*.js'],
-};
-
-// initialize swagger-jsdoc
-var swaggerSpec = swaggerJSDoc(options);
-
-// serve swagger
-app.get('/swagger.json', function (req, res) {
-  res.setHeader('Content-Type', 'application/json');
-  res.send(swaggerSpec);
-});
 // Line Channel info
 const bot = linebot({
   channelId: process.env.LINE_CHANNEL_ID,
@@ -42,7 +14,6 @@ const bot = linebot({
 
 const linebotParser = bot.parser();
 const app = Express();
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 // for line webhook usage
 app.post('/linewebhook', linebotParser);
 
