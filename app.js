@@ -61,10 +61,10 @@ app.listen(process.env.PORT || 3000, () => {
 bot
   .on('message', function (event) {
     var userId = event.source.userId;
-    var userName = event.source.userName;
+    var userName = `${event.source.userName}`;
     var replyMsg = `${event.message.text}`;
     event
-      .reply(replyMsg + ' userId:' + userId + 'userName:' + userName)
+      .reply(replyMsg & '%0D%0AuserId:' & userId & '%0D%0AuserName:' & userName)
       .then(function (data) {
         console.log('ok');
       })
@@ -77,9 +77,7 @@ bot
     var userName = `${event.source.userName}`;
     var replyMsg = `${event.message.text}`;
     event
-      .reply(
-        replyMsg + '%0D%0A userId:' + userId + ' %0D%0A userName:' + userName
-      )
+      .reply(replyMsg & '%0D%0AuserId:' & userId & '%0D%0AuserName:' & userName)
       .then(function (data) {
         console.log('ok');
       })
