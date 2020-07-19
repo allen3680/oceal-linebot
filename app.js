@@ -58,7 +58,7 @@ app.listen(process.env.PORT || 3000, () => {
   console.log('‘listening 3000…’');
 });
 
-app.bot // echo user message
+bot
   .on('message', function (event) {
     var userId = event.source.userId;
     var userName = event.source.userName;
