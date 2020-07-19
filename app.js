@@ -58,20 +58,12 @@ app.listen(process.env.PORT || 3000, () => {
   console.log('‘listening 3000…’');
 });
 
-var userProfile;
-
-bot.getUserProfile('U6278360b471da341c6276a65cd6b0d95').then((x) => {
-  bot.broadcast(JSON.stringify(x));
-});
-
 bot
-  // .getUserProfile('U6278360b471da341c6276a65cd6b0d95')
-  // .then((x) => {
-  //   userProfile = x;
-  // })
   .on('message', function (event) {
     var userId = event.source.userId;
-    var userName = userProfile;
+    var userName = bot.getUserProfile(userId).then((x) => {
+      return JSON.stringify(x).displayName;
+    });
     var replyMsg = `${event.message.text}`;
     event
       .reply(replyMsg + '\nuserId:' + userId + '\nuserName:' + userName)
