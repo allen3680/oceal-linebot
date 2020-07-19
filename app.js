@@ -58,15 +58,19 @@ app.listen(process.env.PORT || 3000, () => {
   console.log('‘listening 3000…’');
 });
 
+var userProfile;
+
 bot
+  .getUserProfile('U6278360b471da341c6276a65cd6b0d95')
+  .then((x) => {
+    userProfile = x;
+  })
   .on('message', function (event) {
     var userId = event.source.userId;
-    // var userName = event.;
+    var userName = userProfile;
     var replyMsg = `${event.message.text}`;
     event
-      .reply(
-        replyMsg + '\nuserId:' + userId + '\nuserName:' + JSON.stringify(event)
-      )
+      .reply(replyMsg + '\nuserId:' + userId + '\nuserName:' + userName)
       .then(function (data) {
         console.log('ok');
       })
