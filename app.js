@@ -51,8 +51,6 @@ app.post('/broadcast', (req, res) => {
     });
 });
 
-bot.getUserProfile(event);
-
 app.listen(process.env.PORT || 3000, () => {
   console.log('‘listening 3000…’');
 });
