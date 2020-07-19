@@ -61,23 +61,25 @@ app.listen(process.env.PORT || 3000, () => {
 bot
   .on('message', function (event) {
     var userId = event.source.userId;
-    var userName = bot.getUserProfile(userId).then((x) => JSON.stringify(x));
     var replyMsg = `${event.message.text}`;
-    event
-      .reply(replyMsg + '\nuserId:' + userId + '\nuserName:' + userName)
-      .then(function (data) {
-        console.log('ok');
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
+    bot.getUserProfile(userId).then((x) => {
+      event
+        .reply(
+          replyMsg + '\nuserId:' + userId + '\nuserName:' + JSON.stringify(x)
+        )
+        .then(function (data) {
+          console.log('ok');
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    });
   })
   .on('follow', function (event) {
     var userId = event.source.userId;
-    var userName = `${event.source.userName}`;
     var replyMsg = `${event.message.text}`;
     event
-      .reply(replyMsg + '\nuserId:' + userId + '\nuserName:' + userName)
+      .reply(replyMsg + '\nuserId:' + userId)
       .then(function (data) {
         console.log('ok');
       })
