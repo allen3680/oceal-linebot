@@ -60,6 +60,10 @@ app.listen(process.env.PORT || 3000, () => {
 
 var userProfile;
 
+bot.getUserProfile('U6278360b471da341c6276a65cd6b0d95').then((x) => {
+  bot.broadcast(JSON.stringify(x));
+});
+
 bot
   // .getUserProfile('U6278360b471da341c6276a65cd6b0d95')
   // .then((x) => {
