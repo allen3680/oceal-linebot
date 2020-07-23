@@ -4,7 +4,7 @@ if (result.error) throw result.error;
 const linebot = require('linebot');
 const Express = require('express');
 const BodyParser = require('body-parser');
-
+const replyHelper = require('./src/helper/reply-helper');
 // Line Channel info
 const bot = linebot({
   channelId: process.env.LINE_CHANNEL_ID,
@@ -60,18 +60,7 @@ app.listen(process.env.PORT || 3000, () => {
 
 bot
   .on('message', function (event) {
-    var userId = event.source.userId;
-    var replyMsg = `${event.message.text}`;
-    bot.getUserProfile(userId).then((x) => {
-      event
-        .reply(replyMsg + '\nuserId:' + userId + '\nuserName:' + x.displayName)
-        .then(function (data) {
-          console.log('ok');
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
-    });
+    replyHelper(event);
   })
   .on('follow', function (event) {
     var userId = event.source.userId;
