@@ -124,4 +124,4 @@ var quickReply = {
   },
 };
 
-export { questionList, quickReply };
+module.exports = { questionList, quickReply };
