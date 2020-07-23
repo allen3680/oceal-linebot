@@ -62,18 +62,6 @@ app.listen(process.env.PORT || 3000, () => {
 bot
   .on('message', function (event) {
     replyHelper(event);
-    // var userId = event.source.userId;
-    // var replyMsg = `${event.message.text}`;
-    // bot.getUserProfile(userId).then((x) => {
-    //   event
-    //     .reply(replyMsg + '\nuserId:' + userId + '\nuserName:' + x.displayName)
-    //     .then(function (data) {
-    //       console.log('ok');
-    //     })
-    //     .catch(function (error) {
-    //       console.error(error);
-    //     });
-    // });
   })
   .on('follow', function (event) {
     var userId = event.source.userId;
