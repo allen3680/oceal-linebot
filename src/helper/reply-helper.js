@@ -1,12 +1,12 @@
 'use strict';
-import * as list from './question-list';
+import { questionList, quickReply } from './question-list';
 
 function reply(event) {
   var userId = event.source.userId;
   var replyMsg = `${event.message.text}`;
 
   if (replyMsg == '請問') {
-    event.reply(list.questList);
+    event.reply(questionList);
     return;
   }
 
@@ -28,7 +28,7 @@ function reply(event) {
     return;
   }
   if (replyMsg == '問題四') {
-    event.reply(list.quickReply);
+    event.reply(quickReply);
     return;
   }
 

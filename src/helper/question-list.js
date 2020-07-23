@@ -123,3 +123,5 @@ var quickReply = {
     ],
   },
 };
+
+export { questionList, quickReply };
