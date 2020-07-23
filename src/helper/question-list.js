@@ -123,6 +123,3 @@ var quickReply = {
     ],
   },
 };
-
-module.exports = questionList;
-module.exports = quickReply;

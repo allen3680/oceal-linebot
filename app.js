@@ -4,7 +4,7 @@ if (result.error) throw result.error;
 const linebot = require('linebot');
 const Express = require('express');
 const BodyParser = require('body-parser');
-const replyHH = require('./src/helper/reply-helper');
+const replyHH = require('./src/helper/reply-helper').default;
 
 // Line Channel info
 const bot = linebot({

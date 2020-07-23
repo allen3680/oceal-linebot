@@ -1,6 +1,5 @@
 'use strict';
-const Express = require('express');
-const { questionList, quickReply } = require('./question-list');
+import { questionList, quickReply } from './question-list';
 
 function reply(event) {
   var userId = event.source.userId;
@@ -37,4 +36,4 @@ function reply(event) {
   return;
 }
 
-module.exports = reply;
+export default reply;
