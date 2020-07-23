@@ -27,48 +27,50 @@ var questionList = {
           flex: 2,
           contents: [
             {
-              type: 'text',
-              text: '問題一',
-              flex: 1,
-              size: 'sm',
-              gravity: 'top',
-            },
-            {
-              type: 'separator',
-            },
-            {
-              type: 'text',
-              text: '問題二',
-              flex: 2,
-              size: 'sm',
-              gravity: 'center',
-            },
-            {
-              type: 'separator',
-            },
-            {
-              type: 'text',
-              text: '問題三',
-              flex: 2,
-              size: 'sm',
-              gravity: 'center',
-            },
-            {
-              type: 'separator',
-            },
-            {
-              type: 'text',
-              text: '問題四',
-              flex: 1,
-              size: 'sm',
-              gravity: 'bottom',
-            },
-            {
               type: 'button',
               action: {
                 type: 'message',
                 label: '問題一',
                 text: '問題一',
+              },
+              margin: 'sm',
+              height: 'sm',
+            },
+            {
+              type: 'separator',
+            },
+            {
+              type: 'button',
+              action: {
+                type: 'message',
+                label: '問題二',
+                text: '問題二',
+              },
+              margin: 'sm',
+              height: 'sm',
+            },
+            {
+              type: 'separator',
+            },
+            {
+              type: 'button',
+              action: {
+                type: 'message',
+                label: '問題三',
+                text: '問題三',
+              },
+              margin: 'sm',
+              height: 'sm',
+            },
+            {
+              type: 'separator',
+            },
+            {
+              type: 'button',
+              action: {
+                type: 'message',
+                label: '問題四',
+                text: '問題四',
               },
               margin: 'sm',
               height: 'sm',
@@ -86,7 +88,8 @@ var questionList = {
           action: {
             type: 'uri',
             label: 'More',
-            uri: 'https://linecorp.com',
+            uri:
+              'https://www.facebook.com/Ai%E6%9C%9F%E8%B2%A8%E9%A0%90%E6%B8%AC-104912961057733',
           },
         },
       ],

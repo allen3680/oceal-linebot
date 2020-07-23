@@ -37,13 +37,25 @@ function reply(event) {
     return;
   }
 
-  if (/pdf/.test(replyMsg)) {
+  if (/pdf/i.test(replyMsg)) {
     event.reply('pdf');
     return;
   }
 
   if (replyMsg == '問題一') {
     event.reply('答案一');
+    return;
+  }
+  if (replyMsg == '問題二') {
+    event.reply('答案二');
+    return;
+  }
+  if (replyMsg == '問題三') {
+    event.reply('答案三');
+    return;
+  }
+  if (replyMsg == '問題四') {
+    event.reply('答案四');
     return;
   }
 
