@@ -33,7 +33,7 @@ function reply(event) {
   var replyMsg = `${event.message.text}`;
 
   if (replyMsg == '請問') {
-    event.reply(event.replyToken, questionList);
+    event.reply(questionList);
     return;
   }
 
