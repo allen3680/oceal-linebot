@@ -61,7 +61,7 @@ app.listen(process.env.PORT || 3000, () => {
 
 bot
   .on('message', function (event) {
-    reply(event);
+    ReplyHelper.reply(event);
     // var userId = event.source.userId;
     // var replyMsg = `${event.message.text}`;
     // bot.getUserProfile(userId).then((x) => {
