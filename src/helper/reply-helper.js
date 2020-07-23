@@ -36,4 +36,4 @@ function reply(event) {
   return;
 }
 
-export default reply;
+module.exports = reply;

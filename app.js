@@ -1,10 +1,10 @@
 'use strict';
 const result = require('dotenv').config();
 if (result.error) throw result.error;
-import linebot from 'linebot';
-import Express from 'express';
-import { urlencoded, json } from 'body-parser';
-import reply from './src/helper/reply-helper';
+const linebot = require('linebot');
+const Express = require('express');
+const BodyParser = require('body-parser');
+const replyHelper = require('./src/helper/reply-helper');
 
 // Line Channel info
 const bot = linebot({
@@ -18,8 +18,8 @@ const app = Express();
 // for line webhook usage
 app.post('/linewebhook', linebotParser);
 
-app.use(urlencoded({ extended: true }));
-app.use(json());
+app.use(BodyParser.urlencoded({ extended: true }));
+app.use(BodyParser.json());
 
 // a http endpoint for trigger broadcast
 app.post('/broadcast', (req, res) => {
@@ -61,7 +61,7 @@ app.listen(process.env.PORT || 3000, () => {
 
 bot
   .on('message', function (event) {
-    reply(event);
+    replyHelper(event);
     // var userId = event.source.userId;
     // var replyMsg = `${event.message.text}`;
     // bot.getUserProfile(userId).then((x) => {
