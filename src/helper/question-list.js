@@ -97,4 +97,32 @@ var questionList = {
   },
 };
 
+var quickReply = {
+  type: 'text',
+  text: '你愛我嗎?',
+  quickReply: {
+    items: [
+      {
+        type: 'action',
+        imageUrl: '',
+        action: {
+          type: 'message',
+          label: '愛',
+          text: 'Yes',
+        },
+      },
+      {
+        type: 'action',
+        imageUrl: '',
+        action: {
+          type: 'message',
+          label: '不愛',
+          text: 'No',
+        },
+      },
+    ],
+  },
+};
+
 module.exports = questionList;
+module.exports = quickReply;
