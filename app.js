@@ -64,7 +64,7 @@ bot
     replyHelper(event);
     var userId = event.source.userId;
     bot.getUserProfile(userId).then((x) => {
-      saveUserProfile(event);
+      saveUserProfile(x);
     });
   })
   .on('follow', function (event) {

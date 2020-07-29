@@ -10,9 +10,9 @@ var connection = mysql.createConnection({
 });
 var addSql = 'insert into user(id,name,group,createdTime)values(?,?,?,?)';
 
-function saveUserProfile(event) {
+function saveUserProfile(x) {
   connection.connect();
-  var addSqlParams = [userId, x.displayName, A, Date.now()];
+  var addSqlParams = [x.userId, x.displayName, A, Date.now()];
   connection.query(addSql, addSqlParams);
   connection.end();
 }
