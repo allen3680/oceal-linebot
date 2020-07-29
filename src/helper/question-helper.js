@@ -8,15 +8,12 @@ var connection = mysql.createConnection({
   database: 'heroku_1910ca2834ffcea',
   port: '3306',
 });
+var addSql = 'insert into user(id,name,group,createdTime)values(?,?,?,?)';
 
 function saveUserProfile(event) {
-  var addSql = 'insert into user(id,name,group,createdTime)values(?,?,?,?)';
-  var userId = event.source.userId;
   connection.connect();
-  bot.getUserProfile(userId).then((x) => {
-    var addSqlParams = [userId, x.displayName, A, Date.now()];
-    connection.query(addSql, addSqlParams);
-  });
+  var addSqlParams = [userId, x.displayName, A, Date.now()];
+  connection.query(addSql, addSqlParams);
   connection.end();
 }
 
