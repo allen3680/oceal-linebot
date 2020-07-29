@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
 });
 
 function saveUserProfile(event) {
-  var addSql = 'insert into user(id,name,group,createdDate)values(?,?,?,?)';
+  var addSql = 'insert into user(id,name,group,createdTime)values(?,?,?,?)';
   var userId = event.source.userId;
   connection.connect();
   bot.getUserProfile(userId).then((x) => {
