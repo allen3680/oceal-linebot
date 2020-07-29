@@ -5,6 +5,7 @@ const linebot = require('linebot');
 const Express = require('express');
 const BodyParser = require('body-parser');
 const replyHelper = require('./src/helper/reply-helper');
+const saveUserProfile = require('./src/helper/question-helper');
 // Line Channel info
 const bot = linebot({
   channelId: process.env.LINE_CHANNEL_ID,
@@ -61,17 +62,8 @@ app.listen(process.env.PORT || 3000, () => {
 bot
   .on('message', function (event) {
     replyHelper(event);
+    saveUserProfile(event);
   })
   .on('follow', function (event) {
-    var userId = event.source.userId;
-    bot.getUserProfile(userId).then((x) => {
-      event
-        .reply('Hello!\nuserId:' + userId + '\nuserName:' + x.displayName)
-        .then(function (data) {
-          console.log('ok');
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
-    });
+    saveUserProfile(event);
   });

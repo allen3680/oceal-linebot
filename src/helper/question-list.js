@@ -117,7 +117,7 @@ var quickReply = {
         action: {
           type: 'message',
           label: '不愛',
-          text: 'No',
+          text: 'yes',
         },
       },
     ],
