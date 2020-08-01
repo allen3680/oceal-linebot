@@ -67,10 +67,14 @@ bot
       bot.getUserProfile(userId).then((x) => {
         saveUserProfile(x);
       });
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   })
   .on('follow', function (event) {
     try {
       saveUserProfile(event);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   });
