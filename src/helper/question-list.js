@@ -31,7 +31,7 @@ var questionList = {
               action: {
                 type: 'message',
                 label: '問題一',
-                text: '問題一',
+                text: '如果先付費的話到時候沒獲利反而虧損的話算誰的呢?',
               },
               margin: 'sm',
               height: 'sm',
@@ -44,7 +44,7 @@ var questionList = {
               action: {
                 type: 'message',
                 label: '問題二',
-                text: '問題二',
+                text: '需要電腦或手機使用嗎?',
               },
               margin: 'sm',
               height: 'sm',
@@ -57,7 +57,7 @@ var questionList = {
               action: {
                 type: 'message',
                 label: '問題三',
-                text: '問題三',
+                text: '勝率大概多少呢?',
               },
               margin: 'sm',
               height: 'sm',
@@ -70,7 +70,46 @@ var questionList = {
               action: {
                 type: 'message',
                 label: '問題四',
-                text: '問題四',
+                text: '請問你們是做什麼商品為主?',
+              },
+              margin: 'sm',
+              height: 'sm',
+            },
+            {
+              type: 'separator',
+            },
+            {
+              type: 'button',
+              action: {
+                type: 'message',
+                label: '問題五',
+                text: '本金要多少?',
+              },
+              margin: 'sm',
+              height: 'sm',
+            },
+            {
+              type: 'separator',
+            },
+            {
+              type: 'button',
+              action: {
+                type: 'message',
+                label: '問題六',
+                text: '可以獲利多少?',
+              },
+              margin: 'sm',
+              height: 'sm',
+            },
+            {
+              type: 'separator',
+            },
+            {
+              type: 'button',
+              action: {
+                type: 'message',
+                label: '問題七',
+                text: '我還是不太明白是做什麼要如何做?',
               },
               margin: 'sm',
               height: 'sm',
@@ -117,7 +156,7 @@ var quickReply = {
         action: {
           type: 'message',
           label: '不愛',
-          text: 'yes',
+          text: 'Yes',
         },
       },
     ],

@@ -12,7 +12,7 @@ var addSql = 'insert into heroku_1910ca2834ffcea.user values(?,?,?,?)';
 
 function saveUserProfile(x) {
   connection.connect();
-  var addSqlParams = [x.userId, x.displayName, 'A', Date.now()];
+  var addSqlParams = [x.userId, 'A', x.displayName, Date.now()];
   connection.query(addSql, addSqlParams);
   connection.end();
 }
