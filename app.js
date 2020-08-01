@@ -61,12 +61,16 @@ app.listen(process.env.PORT || 3000, () => {
 
 bot
   .on('message', function (event) {
-    replyHelper(event);
-    var userId = event.source.userId;
-    bot.getUserProfile(userId).then((x) => {
-      saveUserProfile(x);
-    });
+    try {
+      replyHelper(event);
+      var userId = event.source.userId;
+      bot.getUserProfile(userId).then((x) => {
+        saveUserProfile(x);
+      });
+    } catch (error) {}
   })
   .on('follow', function (event) {
-    saveUserProfile(event);
+    try {
+      saveUserProfile(event);
+    } catch (error) {}
   });
