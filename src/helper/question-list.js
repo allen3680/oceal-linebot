@@ -108,8 +108,8 @@ var questionList = {
               type: 'button',
               action: {
                 type: 'message',
-                label: '我還是不太明白要如何做?',
-                text: '我還是不太明白是做什麼要如何做?',
+                label: '還是不太明白要如何做?',
+                text: '還是不太明白要如何做?',
               },
               margin: 'sm',
               height: 'sm',

@@ -9,14 +9,14 @@ var connection = mysql.createConnection({
   port: '3306',
 });
 var createSql = 'insert into heroku_1910ca2834ffcea.user values(?,?,?,?)';
-var selectSql = 'select * from heroku_1910ca2834ffcea.user where userId = ?';
+var selectSql = 'select * from heroku_1910ca2834ffcea.user where id = ?';
 
 function saveUserProfile(x) {
   try {
     connection.connect();
     var addSqlParams = [x.userId];
     var user = connection.query(selectSql, addSqlParams);
-    if (!user) {
+    if (user) {
       return;
     }
     addSqlParams = [x.userId, 'A', x.displayName, Date.now()];
