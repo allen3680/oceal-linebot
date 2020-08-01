@@ -15,7 +15,7 @@ function saveUserProfile(x) {
   try {
     connection.connect();
     var addSqlParams = [x.userId];
-    var user = connection.query(selectSql);
+    var user = connection.query(selectSql, addSqlParams);
     if (!user) {
       return;
     }
