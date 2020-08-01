@@ -30,7 +30,7 @@ var questionList = {
               type: 'button',
               action: {
                 type: 'message',
-                label: '問題一',
+                label: '如果先付費的話到時候沒獲利反而虧損的話算誰的呢?',
                 text: '如果先付費的話到時候沒獲利反而虧損的話算誰的呢?',
               },
               margin: 'sm',
@@ -43,7 +43,7 @@ var questionList = {
               type: 'button',
               action: {
                 type: 'message',
-                label: '問題二',
+                label: '需要電腦或手機使用嗎?',
                 text: '需要電腦或手機使用嗎?',
               },
               margin: 'sm',
@@ -56,7 +56,7 @@ var questionList = {
               type: 'button',
               action: {
                 type: 'message',
-                label: '問題三',
+                label: '勝率大概多少呢?',
                 text: '勝率大概多少呢?',
               },
               margin: 'sm',
@@ -69,7 +69,7 @@ var questionList = {
               type: 'button',
               action: {
                 type: 'message',
-                label: '問題四',
+                label: '請問你們是做什麼商品為主?',
                 text: '請問你們是做什麼商品為主?',
               },
               margin: 'sm',
@@ -82,7 +82,7 @@ var questionList = {
               type: 'button',
               action: {
                 type: 'message',
-                label: '問題五',
+                label: '本金要多少?',
                 text: '本金要多少?',
               },
               margin: 'sm',
@@ -95,7 +95,7 @@ var questionList = {
               type: 'button',
               action: {
                 type: 'message',
-                label: '問題六',
+                label: '可以獲利多少?',
                 text: '可以獲利多少?',
               },
               margin: 'sm',
@@ -108,7 +108,7 @@ var questionList = {
               type: 'button',
               action: {
                 type: 'message',
-                label: '問題七',
+                label: '我還是不太明白是做什麼要如何做?',
                 text: '我還是不太明白是做什麼要如何做?',
               },
               margin: 'sm',
