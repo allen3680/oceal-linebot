@@ -13,7 +13,6 @@ var selectSql = 'select * from heroku_1910ca2834ffcea.user where id = ?';
 
 function saveUserProfile(x) {
   try {
-    connection.connect();
     var addSqlParams = [x.userId];
     var user = connection.query(selectSql, addSqlParams);
     if (user) {
@@ -21,7 +20,6 @@ function saveUserProfile(x) {
     }
     addSqlParams = [x.userId, 'A', x.displayName, Date.now()];
     connection.query(createSql, addSqlParams);
-    connection.end();
   } catch (error) {
     throw error;
   }
