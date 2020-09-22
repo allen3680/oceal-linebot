@@ -64,6 +64,7 @@ app.listen(process.env.PORT || 3000, () => {
 bot
   .on('message', function (event) {
     try {
+      console.log('aaaa');
       replyHelper(event);
       event.reply(questionList.selectProduct).then((res) => {
         console.log(res);
