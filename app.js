@@ -66,10 +66,10 @@ bot
     try {
       console.log('aaaa');
       replyHelper(event);
-      event.reply(questionList.selectProduct).then((res) => {
-        console.log(res);
-        questionHelper.updateUserProduct(event.userId, res);
-      });
+      // event.reply(questionList.selectProduct).then((res) => {
+      //   console.log(res);
+      //   questionHelper.updateUserProduct(event.userId, res);
+      // });
 
       // bot
       //   .push(event.source.userId, questionList.selectProduct)
