@@ -163,4 +163,40 @@ var quickReply = {
   },
 };
 
-module.exports = { questionList, quickReply };
+var selectProduct = {
+  type: 'template',
+  altText: 'this is a buttons template',
+  template: {
+    type: 'buttons',
+    actions: [
+      {
+        type: 'message',
+        label: '台指期',
+        text: '台指期',
+        data: 'fitx',
+      },
+      {
+        type: 'message',
+        label: '金融指',
+        text: '金融指',
+        data: 'fitf',
+      },
+      {
+        type: 'message',
+        label: '電子期',
+        text: '電子期',
+        data: 'fite',
+      },
+      {
+        type: 'message',
+        label: '外匯',
+        text: '外匯',
+        data: 'fe',
+      },
+    ],
+    title: '您好!',
+    text: '請問要訂閱什麼商品呢?',
+  },
+};
+
+module.exports = { questionList, quickReply, selectProduct };

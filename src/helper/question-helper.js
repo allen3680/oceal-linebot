@@ -8,21 +8,42 @@ var connection = mysql.createConnection({
   database: 'heroku_1910ca2834ffcea',
   port: '3306',
 });
-var createSql = 'insert into heroku_1910ca2834ffcea.user values(?,?,?,?)';
-var selectSql = 'select * from heroku_1910ca2834ffcea.user where id = ?';
 
-function saveUserProfile(x) {
+function saveUserProfile(user) {
+  var selectSql = 'select * from heroku_1910ca2834ffcea.user where id = ?';
+  var createSql = 'insert into heroku_1910ca2834ffcea.user values(?,?,?,?)';
   try {
-    var addSqlParams = [x.userId];
+    var addSqlParams = [user.userId];
     var user = connection.query(selectSql, addSqlParams);
     if (user) {
       return;
     }
-    addSqlParams = [x.userId, 'A', x.displayName, Date.now()];
+    addSqlParams = [user.userId, '', user.displayName, Date.now()];
     connection.query(createSql, addSqlParams);
   } catch (error) {
     throw error;
   }
 }
 
-module.exports = saveUserProfile;
+function updateUserProduct(userId, productId) {
+  var createSql = 'insert into heroku_1910ca2834ffcea.user values(?,?,?,?)';
+  var updateSql =
+    'update heroku_1910ca2834ffcea.user set user.group = ? where user.id = ?';
+  try {
+    var addSqlParams = [productId, userId];
+
+    if (!user) {
+      addSqlParams = [user.userId, productId, user.displayName, Date.now()];
+      connection.query(createSql, addSqlParams);
+      return;
+    }
+
+    connection.query(updateSql, addSqlParams);
+
+    return;
+  } catch (error) {
+    throw error;
+  }
+}
+
+module.exports = { saveUserProfile, updateUserProduct };

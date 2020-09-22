@@ -5,7 +5,9 @@ const linebot = require('linebot');
 const Express = require('express');
 const BodyParser = require('body-parser');
 const replyHelper = require('./src/helper/reply-helper');
-const saveUserProfile = require('./src/helper/question-helper');
+const questionHelper = require('./src/helper/question-helper');
+const questionList = require('./src/helper/question-list');
+
 // Line Channel info
 const bot = linebot({
   channelId: process.env.LINE_CHANNEL_ID,
@@ -29,7 +31,7 @@ app.post('/broadcast', (req, res) => {
       res.send('success');
     })
     .catch(function (error) {
-      res.send('fail');
+      res.send('fail:　', error);
     });
 });
 
@@ -40,7 +42,7 @@ app.post('/pushMessage', (req, res) => {
       res.send('success');
     })
     .catch(function (error) {
-      res.send('fail');
+      res.send('fail:　', error);
     });
 });
 
@@ -51,7 +53,7 @@ app.post('/pushImage', (req, res) => {
       res.send('success');
     })
     .catch(function (error) {
-      res.send('fail');
+      res.send('fail:　', error);
     });
 });
 
@@ -63,17 +65,38 @@ bot
   .on('message', function (event) {
     try {
       replyHelper(event);
-      var userId = event.source.userId;
-      bot.getUserProfile(userId).then((x) => {
-        saveUserProfile(x);
+      event.reply(questionList.selectProduct).then((res) => {
+        console.log(res);
+        questionHelper.updateUserProduct(event.userId, res);
       });
+
+      // bot
+      //   .push(event.source.userId, questionList.selectProduct)
+      //   .then(() => {
+      //     event.reply();
+      //   })
+      //   .catch(function (error) {
+      //     res.send('fail:　', error);
+      //   });
+      // var userId = event.source.userId;
+      // bot.getUserProfile(userId).then((x) => {
+      //   saveUserProfile(x);
+      // });
     } catch (error) {
       console.log(error);
     }
   })
   .on('follow', function (event) {
     try {
-      saveUserProfile(event);
+      questionHelper.saveUserProfile(event);
+      // bot
+      //   .push(event.source.userId, questionList.selectProduct)
+      //   .then((response) => {
+      //     res.send('success');
+      //   })
+      //   .catch(function (error) {
+      //     res.send('fail:　', error);
+      //   });
     } catch (error) {
       console.log(error);
     }
